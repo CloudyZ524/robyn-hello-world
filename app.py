@@ -1,4 +1,5 @@
 from robyn import Robyn
+import os
 
 app = Robyn(__file__)
 
@@ -7,6 +8,6 @@ app = Robyn(__file__)
 def index():
     return "Hello World!"
 
-
 if __name__ == "__main__":
-    app.start(host="0.0.0.0", port=8080)
+    port = int(os.getenv("PORT", 8080))
+    app.start(host="0.0.0.0", port=port)
